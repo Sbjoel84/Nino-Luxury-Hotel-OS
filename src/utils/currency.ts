@@ -1,5 +1,5 @@
 /**
- * HOTel OS - Currency Utility
+ * Nino Luxury Hotel - Currency Utility
  * Nigerian Naira (₦ / NGN) Formatter
  */
 

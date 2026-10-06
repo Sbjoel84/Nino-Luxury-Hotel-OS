@@ -12,7 +12,7 @@ export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const { login, isLoading } = useAuthStore();
 
-  const [email, setEmail] = useState('admin@hotelos.ng');
+  const [email, setEmail] = useState('admin@ninoluxuryhotel.ng');
   const [password, setPassword] = useState('HotelOS2026!');
   const [error, setError] = useState('');
 
@@ -44,7 +44,7 @@ export const LoginPage: React.FC = () => {
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-500 shadow-lg">
             <Hotel className="w-7 h-7" />
           </div>
-          <h1 className="text-2xl font-bold tracking-tight text-white">HOTel OS</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-white">Nino Luxury Hotel</h1>
           <p className="text-xs text-neutral-400">
             Kubwa, Abuja, Nigeria • Hotel Management Operating System
           </p>
@@ -74,7 +74,7 @@ export const LoginPage: React.FC = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
               prefixElement={<Mail className="w-4 h-4" />}
-              placeholder="e.g. reception@hotelos.ng"
+              placeholder="e.g. reception@ninoluxuryhotel.ng"
             />
 
             <Input
@@ -93,7 +93,7 @@ export const LoginPage: React.FC = () => {
               className="w-full h-11 text-neutral-950 font-semibold mt-2"
               isLoading={isLoading}
             >
-              Sign In to Hotel OS
+              Sign In to Nino Luxury Hotel
             </Button>
           </form>
 
@@ -122,7 +122,7 @@ export const LoginPage: React.FC = () => {
 
         {/* Footer */}
         <p className="text-center text-xs text-neutral-500">
-          HOTel OS © 2026. Kubwa Expressway, Abuja, Nigeria.
+          Nino Luxury Hotel © 2026. Kubwa Expressway, Abuja, Nigeria.
         </p>
       </div>
     </div>

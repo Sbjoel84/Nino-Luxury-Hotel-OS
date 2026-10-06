@@ -22,7 +22,7 @@ interface UIState {
   removeToast: (id: string) => void;
 }
 
-const THEME_STORAGE_KEY = 'grand_dream_theme';
+const THEME_STORAGE_KEY = 'nino_luxury_theme';
 
 const getInitialTheme = (): ThemeMode => {
   try {

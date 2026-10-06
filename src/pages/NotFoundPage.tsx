@@ -13,7 +13,7 @@ export const NotFoundPage: React.FC = () => {
       </div>
       <h1 className="text-2xl font-bold text-white mb-2">404 - Page Not Found</h1>
       <p className="text-sm text-neutral-400 max-w-sm mb-6">
-        The requested screen does not exist or has been relocated within the HOTel OS.
+        The requested screen does not exist or has been relocated within the Nino Luxury Hotel.
       </p>
       <Button variant="primary" size="sm" onClick={() => navigate('/dashboard')} icon={<Home className="w-4 h-4" />}>
         Return to Dashboard

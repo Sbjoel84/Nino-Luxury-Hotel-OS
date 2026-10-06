@@ -62,10 +62,10 @@ export const TopNav: React.FC = () => {
     if (path.startsWith('/finance')) return 'Financial Accounting';
     if (path.startsWith('/maintenance')) return 'Facilities & Maintenance';
     if (path.startsWith('/reports')) return 'Hotel Operational Reports';
-    if (path.startsWith('/users')) return 'Staff & Access Control';
+    if (path.startsWith('/users')) return 'Admin Panel';
     if (path.startsWith('/audit')) return 'System Audit Logs';
     if (path.startsWith('/settings')) return 'Hotel Settings';
-    return 'Hotel OS';
+    return 'Nino Luxury Hotel';
   };
 
   return (
@@ -81,7 +81,7 @@ export const TopNav: React.FC = () => {
         </button>
         <div>
           <div className="flex items-center gap-2 text-xs text-neutral-400">
-            <span className="font-semibold text-neutral-300">HOTel OS</span>
+            <span className="font-semibold text-neutral-300">Nino Luxury Hotel</span>
             <span>/</span>
             <span className="text-amber-500 font-medium">{getBreadcrumbTitle()}</span>
           </div>

@@ -1,5 +1,5 @@
 /**
- * HOTel OS - Date & Time Utilities
+ * Nino Luxury Hotel - Date & Time Utilities
  * Formatted consistently for Nigerian Hotel Operations
  */
 

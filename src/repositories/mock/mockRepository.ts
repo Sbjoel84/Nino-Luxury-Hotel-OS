@@ -40,11 +40,11 @@ import {
   INITIAL_USERS,
 } from './mockData';
 
-const STORAGE_PREFIX = 'hotel_os_';
+const STORAGE_PREFIX = 'nino_luxury_';
 
 function loadFromStorage<T>(key: string, fallback: T): T {
   try {
-    const item = localStorage.getItem(STORAGE_PREFIX + key) || localStorage.getItem('grand_dream_os_' + key);
+    const item = localStorage.getItem(STORAGE_PREFIX + key);
     return item ? JSON.parse(item) : fallback;
   } catch (err) {
     console.error(`Failed to load ${key} from storage:`, err);
@@ -1010,6 +1010,22 @@ export class MockHotelRepository implements IHotelRepository {
   // --- Users ---
   async getUsers(): Promise<UserProfile[]> {
     return [...this.users];
+  }
+
+  async createUser(data: Omit<UserProfile, 'id' | 'createdAt' | 'lastLogin'>): Promise<UserProfile> {
+    const email = data.email.trim().toLowerCase();
+    if (this.users.some((u) => u.email.toLowerCase() === email)) {
+      throw new Error('A staff member with this email already exists');
+    }
+    const newUser: UserProfile = {
+      ...data,
+      email,
+      id: `user-${Date.now()}`,
+      createdAt: new Date().toISOString(),
+    };
+    this.users.push(newUser);
+    this.sync('users', this.users);
+    return newUser;
   }
 
   async updateUser(id: string, updates: Partial<UserProfile>): Promise<UserProfile> {

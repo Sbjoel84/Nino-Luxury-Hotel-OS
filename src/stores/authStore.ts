@@ -13,17 +13,27 @@ interface AuthState {
   setUser: (user: UserProfile | null) => void;
 }
 
-const STORAGE_KEY = 'hotel_os_active_user';
+const STORAGE_KEY = 'nino_luxury_active_user';
 
 function getStoredUser(): UserProfile | null {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('grand_dream_active_user');
+    const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) return JSON.parse(raw);
   } catch (e) {
     console.error(e);
   }
   // Default to Super Administrator for full demonstration capability
   return INITIAL_USERS[0];
+}
+
+function getMockUsers(): UserProfile[] {
+  try {
+    const raw = localStorage.getItem('nino_luxury_users');
+    if (raw) return JSON.parse(raw);
+  } catch (e) {
+    console.error(e);
+  }
+  return INITIAL_USERS;
 }
 
 export const useAuthStore = create<AuthState>((set, get) => ({
@@ -53,10 +63,15 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         }
       }
 
-      // Mock user login by email or role match
-      const matched = INITIAL_USERS.find(
+      // Mock user login by email or role match (includes staff added via Admin Panel)
+      const matched = getMockUsers().find(
         (u) => u.email.toLowerCase() === email.toLowerCase() || u.role === (email as UserRole)
       );
+
+      if (matched && matched.isActive === false) {
+        set({ isLoading: false });
+        return false;
+      }
 
       const targetUser = matched || {
         ...INITIAL_USERS[0],

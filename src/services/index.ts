@@ -99,6 +99,7 @@ export const maintenanceService = {
 
 export const userService = {
   getUsers: () => getRepository().getUsers(),
+  createUser: (data: Parameters<IHotelRepository['createUser']>[0]) => getRepository().createUser(data),
   updateUser: (id: string, data: Parameters<IHotelRepository['updateUser']>[1]) => getRepository().updateUser(id, data),
 };
 

@@ -19,7 +19,7 @@ import {
 } from '../../types';
 
 export const INITIAL_SETTINGS: HotelSettings = {
-  hotelName: 'HOTel OS',
+  hotelName: 'Nino Luxury Hotel',
   address: 'Plot 428, Arab Road, Phase 4 Junction',
   district: 'Kubwa',
   city: 'Abuja',
@@ -27,8 +27,8 @@ export const INITIAL_SETTINGS: HotelSettings = {
   country: 'Nigeria',
   phone: '+234 803 555 0192',
   altPhone: '+234 812 444 8831',
-  email: 'frontdesk@hotelos.ng',
-  website: 'https://hotelos.ng',
+  email: 'frontdesk@ninoluxuryhotel.ng',
+  website: 'https://ninoluxuryhotel.ng',
   checkInTime: '14:00',
   checkOutTime: '12:00',
   vatRate: 7.5,
@@ -38,7 +38,7 @@ export const INITIAL_SETTINGS: HotelSettings = {
   generatorRunHoursPerDay: 14,
   bankDetails: {
     bankName: 'Zenith Bank Plc',
-    accountName: 'HOTel OS Hospitality Ltd',
+    accountName: 'Nino Luxury Hotel Hospitality Ltd',
     accountNumber: '1015694200',
   },
 };
@@ -46,7 +46,7 @@ export const INITIAL_SETTINGS: HotelSettings = {
 export const INITIAL_USERS: UserProfile[] = [
   {
     id: 'user-1',
-    email: 'admin@hotelos.ng',
+    email: 'admin@ninoluxuryhotel.ng',
     fullName: 'Alhaji Ibrahim Gambo',
     role: 'super_admin',
     department: 'Executive Management',
@@ -57,7 +57,7 @@ export const INITIAL_USERS: UserProfile[] = [
   },
   {
     id: 'user-2',
-    email: 'manager@hotelos.ng',
+    email: 'manager@ninoluxuryhotel.ng',
     fullName: 'Ngozi Okonkwo',
     role: 'management',
     department: 'General Operations',
@@ -68,7 +68,7 @@ export const INITIAL_USERS: UserProfile[] = [
   },
   {
     id: 'user-3',
-    email: 'reception@hotelos.ng',
+    email: 'reception@ninoluxuryhotel.ng',
     fullName: 'Chioma Adeyemi',
     role: 'reception',
     department: 'Front Desk',
@@ -79,7 +79,7 @@ export const INITIAL_USERS: UserProfile[] = [
   },
   {
     id: 'user-4',
-    email: 'housekeeping@hotelos.ng',
+    email: 'housekeeping@ninoluxuryhotel.ng',
     fullName: 'Fatima Abubakar',
     role: 'housekeeping',
     department: 'Housekeeping',
@@ -90,7 +90,7 @@ export const INITIAL_USERS: UserProfile[] = [
   },
   {
     id: 'user-5',
-    email: 'restaurant@hotelos.ng',
+    email: 'restaurant@ninoluxuryhotel.ng',
     fullName: 'Emeka Nwosu',
     role: 'restaurant_bar',
     department: 'Food & Beverage',
@@ -101,7 +101,7 @@ export const INITIAL_USERS: UserProfile[] = [
   },
   {
     id: 'user-6',
-    email: 'inventory@hotelos.ng',
+    email: 'inventory@ninoluxuryhotel.ng',
     fullName: 'Tunde Bakare',
     role: 'inventory_officer',
     department: 'Store & Inventory',
@@ -112,7 +112,7 @@ export const INITIAL_USERS: UserProfile[] = [
   },
   {
     id: 'user-7',
-    email: 'finance@hotelos.ng',
+    email: 'finance@ninoluxuryhotel.ng',
     fullName: 'Amina Danjuma',
     role: 'finance_officer',
     department: 'Finance & Accounts',
@@ -123,7 +123,7 @@ export const INITIAL_USERS: UserProfile[] = [
   },
   {
     id: 'user-8',
-    email: 'maintenance@hotelos.ng',
+    email: 'maintenance@ninoluxuryhotel.ng',
     fullName: 'Engr. Segun Adeleke',
     role: 'maintenance_officer',
     department: 'Engineering & Maintenance',
@@ -170,7 +170,7 @@ export const INITIAL_ROOM_TYPES: RoomType[] = [
   },
   {
     id: 'rt-presidential',
-    name: 'HOTel OS Penthouse Suite',
+    name: 'Nino Luxury Hotel Penthouse Suite',
     code: 'GPS',
     baseRate: 150000,
     capacityAdults: 4,
@@ -944,7 +944,7 @@ export const INITIAL_RESERVATIONS: Reservation[] = [
     roomId: 'room-305',
     roomNumber: '305',
     roomTypeId: 'rt-presidential',
-    roomTypeName: 'HOTel OS Penthouse Suite',
+    roomTypeName: 'Nino Luxury Hotel Penthouse Suite',
     checkInDate: '2026-10-04',
     checkOutDate: '2026-10-11',
     nights: 7,
@@ -1045,7 +1045,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
   // Food
   {
     id: 'menu-1',
-    name: 'HOTel OS Signature Jollof Rice & Grilled Croaker',
+    name: 'Nino Luxury Hotel Signature Jollof Rice & Grilled Croaker',
     code: 'F01',
     category: 'Food',
     price: 8500,
@@ -1100,7 +1100,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'menu-6',
-    name: 'HOTel OS Executive Club Sandwich & Fries',
+    name: 'Nino Luxury Hotel Executive Club Sandwich & Fries',
     code: 'F06',
     category: 'Food',
     price: 6000,
@@ -1208,7 +1208,7 @@ export const INITIAL_ORDERS: RestaurantOrder[] = [
       {
         id: 'oi-1',
         menuItemId: 'menu-1',
-        name: 'HOTel OS Signature Jollof Rice & Grilled Croaker',
+        name: 'Nino Luxury Hotel Signature Jollof Rice & Grilled Croaker',
         price: 8500,
         quantity: 1,
         notes: 'Extra pepper sauce on side',
@@ -1288,7 +1288,7 @@ export const INITIAL_ORDERS: RestaurantOrder[] = [
       {
         id: 'oi-6',
         menuItemId: 'menu-6',
-        name: 'HOTel OS Executive Club Sandwich & Fries',
+        name: 'Nino Luxury Hotel Executive Club Sandwich & Fries',
         price: 6000,
         quantity: 1,
         subtotal: 6000,

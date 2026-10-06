@@ -388,7 +388,7 @@ export const POSPage: React.FC = () => {
           <div className="space-y-4 text-center">
             <div className="p-4 rounded-xl bg-neutral-950 border border-neutral-800 font-mono text-xs text-left space-y-2">
               <div className="text-center pb-2 border-b border-neutral-800">
-                <p className="font-bold text-white">HOTEL OS</p>
+                <p className="font-bold text-white">NINO LUXURY HOTEL</p>
                 <p className="text-[10px] text-neutral-400">Kubwa, Abuja, Nigeria</p>
                 <p className="text-[10px] text-amber-400 mt-1">Ticket #{completedOrder.orderNumber}</p>
               </div>

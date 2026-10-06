@@ -153,7 +153,7 @@ export const PaymentsPage: React.FC = () => {
           <div className="space-y-4 font-mono text-xs">
             <div className="p-5 rounded-xl bg-neutral-950 border border-neutral-800 space-y-2">
               <div className="text-center pb-3 border-b border-neutral-800">
-                <h3 className="font-bold text-sm text-white font-sans">HOTEL OS</h3>
+                <h3 className="font-bold text-sm text-white font-sans">NINO LUXURY HOTEL</h3>
                 <p className="text-[10px] text-neutral-400">Kubwa, Abuja, Nigeria</p>
                 <p className="text-[11px] text-amber-500 mt-1 font-bold">
                   OFFICIAL PAYMENT RECEIPT

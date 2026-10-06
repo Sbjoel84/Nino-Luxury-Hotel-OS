@@ -123,7 +123,7 @@ export const DashboardPage: React.FC = () => {
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 p-5 rounded-2xl bg-neutral-900 border border-neutral-800 shadow-sm">
         <div>
           <h1 className="text-xl font-bold text-white tracking-tight">
-            HOTel OS Operations Hub
+            Nino Luxury Hotel Operations Hub
           </h1>
           <p className="text-xs text-neutral-400 mt-1">
             Kubwa, Abuja • Real-time occupancy, revenue streams, and room turnover control

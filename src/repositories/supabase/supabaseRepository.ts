@@ -327,6 +327,12 @@ export class SupabaseHotelRepository implements IHotelRepository {
     return (data as UserProfile[]) || [];
   }
 
+  async createUser(user: Omit<UserProfile, 'id' | 'createdAt' | 'lastLogin'>): Promise<UserProfile> {
+    const { data, error } = await supabase.from('user_profiles').insert([user]).select().single();
+    if (error) throw error;
+    return data as UserProfile;
+  }
+
   async updateUser(id: string, updates: Partial<UserProfile>): Promise<UserProfile> {
     const { data, error } = await supabase.from('user_profiles').update(updates).eq('id', id).select().single();
     if (error) throw error;

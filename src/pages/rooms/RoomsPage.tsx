@@ -267,7 +267,7 @@ export const RoomsPage: React.FC = () => {
           isOpen={isCreateOpen}
           onClose={() => setIsCreateOpen(false)}
           title="Register New Hotel Room"
-          description="Add a new room key to the HOTel OS inventory catalog."
+          description="Add a new room key to the Nino Luxury Hotel inventory catalog."
         >
           <form onSubmit={handleCreateRoom} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">

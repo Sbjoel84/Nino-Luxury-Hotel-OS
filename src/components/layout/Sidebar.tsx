@@ -28,9 +28,36 @@ import {
 } from 'lucide-react';
 import { useAuthStore } from '../../stores/authStore';
 import { useUIStore } from '../../stores/uiStore';
-import { UserRole } from '../../types';
-import { getRoleLabel } from '../../utils/permissions';
+import { Permission, UserRole } from '../../types';
+import { getRoleLabel, hasPermission } from '../../utils/permissions';
 import { getRepositoryMode } from '../../services';
+
+const ROUTE_PERMISSIONS: Record<string, Permission> = {
+  '/dashboard': 'dashboard.view',
+  '/frontdesk': 'frontdesk.checkin',
+  '/check-in': 'frontdesk.checkin',
+  '/check-out': 'frontdesk.checkout',
+  '/reservations': 'reservations.view',
+  '/guests': 'guests.view',
+  '/rooms': 'rooms.view',
+  '/room-types': 'rooms.view',
+  '/housekeeping': 'housekeeping.view',
+  '/restaurant/pos': 'pos.access',
+  '/restaurant/orders': 'pos.access',
+  '/restaurant/menu': 'pos.access',
+  '/inventory': 'inventory.view',
+  '/inventory/transactions': 'inventory.view',
+  '/procurement/orders': 'procurement.manage',
+  '/procurement/suppliers': 'procurement.manage',
+  '/finance/summary': 'finance.view',
+  '/finance/payments': 'finance.view',
+  '/finance/expenses': 'finance.view',
+  '/maintenance': 'maintenance.view',
+  '/reports': 'reports.view',
+  '/users': 'users.manage',
+  '/audit': 'audit.view',
+  '/settings': 'settings.manage',
+};
 
 interface NavItem {
   label: string;
@@ -135,7 +162,7 @@ export const Sidebar: React.FC = () => {
       icon: <FileText className="w-4 h-4" />,
     },
     {
-      label: 'Staff & Users',
+      label: 'Admin Panel',
       path: '/users',
       icon: <Users className="w-4 h-4" />,
     },
@@ -150,6 +177,15 @@ export const Sidebar: React.FC = () => {
       icon: <Settings className="w-4 h-4" />,
     },
   ];
+
+  // Only show pages the signed-in user has been granted (mirrors ProtectedRoute in AppRoutes).
+  const canSee = (path: string) => {
+    const permission = ROUTE_PERMISSIONS[path];
+    return !permission || hasPermission(user, permission);
+  };
+  const visibleNavItems = navItems
+    .map((item) => (item.children ? { ...item, children: item.children.filter((c) => canSee(c.path)) } : item))
+    .filter((item) => (item.children ? item.children.length > 0 : canSee(item.path)));
 
   const roles: UserRole[] = [
     'super_admin',
@@ -187,7 +223,7 @@ export const Sidebar: React.FC = () => {
             </div>
             <div>
               <h1 className="text-sm font-bold tracking-tight text-white leading-none">
-                HOTel OS
+                Nino Luxury Hotel
               </h1>
               <p className="text-[11px] text-neutral-400 mt-1">Kubwa, Abuja • PMS</p>
             </div>
@@ -214,7 +250,7 @@ export const Sidebar: React.FC = () => {
 
         {/* Navigation list */}
         <div className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
-          {navItems.map((item) => {
+          {visibleNavItems.map((item) => {
             const hasChildren = item.children && item.children.length > 0;
             const isGroupActive = hasChildren
               ? item.children!.some((c) => location.pathname === c.path)

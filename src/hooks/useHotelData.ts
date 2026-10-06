@@ -14,6 +14,7 @@ import {
   userService,
 } from '../services';
 import { useUIStore } from '../stores/uiStore';
+import { useAuthStore } from '../stores/authStore';
 
 export const QUERY_KEYS = {
   rooms: ['rooms'],
@@ -450,15 +451,32 @@ export function useUsers() {
     queryFn: userService.getUsers,
   });
 
-  const updateUser = useMutation({
-    mutationFn: ({ id, updates }: { id: string; updates: any }) => userService.updateUser(id, updates),
-    onSuccess: () => {
+  const createUser = useMutation({
+    mutationFn: userService.createUser,
+    onSuccess: (user) => {
       qc.invalidateQueries({ queryKey: QUERY_KEYS.users });
-      addToast({ type: 'success', title: 'Staff Updated', message: 'User profile updated' });
+      addToast({ type: 'success', title: 'Staff Added', message: `${user.fullName} can now sign in` });
+    },
+    onError: (err: any) => {
+      addToast({ type: 'error', title: 'Error', message: err.message || 'Failed to add staff member' });
     },
   });
 
-  return { ...query, updateUser };
+  const updateUser = useMutation({
+    mutationFn: ({ id, updates }: { id: string; updates: any }) => userService.updateUser(id, updates),
+    onSuccess: (updated) => {
+      qc.invalidateQueries({ queryKey: QUERY_KEYS.users });
+      // Apply access changes immediately if the signed-in user edited themselves.
+      const auth = useAuthStore.getState();
+      if (auth.user?.id === updated.id) auth.setUser(updated);
+      addToast({ type: 'success', title: 'Staff Updated', message: 'User profile updated' });
+    },
+    onError: (err: any) => {
+      addToast({ type: 'error', title: 'Error', message: err.message || 'Failed to update staff member' });
+    },
+  });
+
+  return { ...query, createUser, updateUser };
 }
 
 export function useHotelSettings() {

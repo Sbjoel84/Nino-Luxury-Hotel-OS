@@ -42,6 +42,8 @@ export interface UserProfile {
   email: string;
   fullName: string;
   role: UserRole;
+  /** Custom page access. When set, replaces the role's default permissions. */
+  permissions?: Permission[] | null;
   department: string;
   phone?: string;
   avatarUrl?: string;

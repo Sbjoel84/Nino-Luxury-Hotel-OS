@@ -12,7 +12,7 @@ export const SettingsPage: React.FC = () => {
   const { addToast, theme, setTheme } = useUIStore();
 
   const [formData, setFormData] = useState({
-    hotelName: settings?.hotelName || 'HOTel OS',
+    hotelName: settings?.hotelName || 'Nino Luxury Hotel',
     address: settings?.address || 'Plot 428, Arab Road, Phase 4 Junction',
     district: settings?.district || 'Kubwa',
     city: settings?.city || 'Abuja',
@@ -20,8 +20,8 @@ export const SettingsPage: React.FC = () => {
     country: settings?.country || 'Nigeria',
     phone: settings?.phone || '+234 803 555 0192',
     altPhone: settings?.altPhone || '+234 812 444 8831',
-    email: settings?.email || 'frontdesk@hotelos.ng',
-    website: settings?.website || 'https://hotelos.ng',
+    email: settings?.email || 'frontdesk@ninoluxuryhotel.ng',
+    website: settings?.website || 'https://ninoluxuryhotel.ng',
     checkInTime: settings?.checkInTime || '14:00',
     checkOutTime: settings?.checkOutTime || '12:00',
     vatRate: settings?.vatRate || 7.5,
@@ -29,7 +29,7 @@ export const SettingsPage: React.FC = () => {
     currencySymbol: settings?.currencySymbol || '₦',
     currencyCode: settings?.currencyCode || 'NGN',
     bankName: settings?.bankDetails?.bankName || 'Zenith Bank Plc',
-    accountName: settings?.bankDetails?.accountName || 'HOTel OS Hospitality Ltd',
+    accountName: settings?.bankDetails?.accountName || 'Nino Luxury Hotel Hospitality Ltd',
     accountNumber: settings?.bankDetails?.accountNumber || '1015694200',
   });
 

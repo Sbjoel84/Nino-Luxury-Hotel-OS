@@ -87,6 +87,7 @@ export interface IHotelRepository {
 
   // Users
   getUsers(): Promise<UserProfile[]>;
+  createUser(user: Omit<UserProfile, 'id' | 'createdAt' | 'lastLogin'>): Promise<UserProfile>;
   updateUser(id: string, updates: Partial<UserProfile>): Promise<UserProfile>;
 
   // Settings
